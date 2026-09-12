@@ -1,0 +1,1966 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta
+    name="description"
+    content="RifqyBlog adalah blog modern yang membahas teknologi, desain, produktivitas, bisnis, gaya hidup, pendidikan, dan berbagai topik menarik lainnya."
+  />
+  <meta
+    name="keywords"
+    content="RifqyBlog, blog Indonesia, teknologi, desain, bisnis, pendidikan, produktivitas"
+  />
+  <meta name="author" content="RifqyDevices" />
+  <meta name="theme-color" content="#6d5dfc" />
+
+  <title>RifqyBlog — Temukan Ide dan Inspirasi</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    /* ==============================
+       ROOT & THEME
+    ============================== */
+    :root {
+      --primary: #6d5dfc;
+      --primary-dark: #5545e8;
+      --secondary: #13c8a3;
+      --accent: #ffb547;
+
+      --bg: #f6f7fb;
+      --surface: #ffffff;
+      --surface-soft: #f0f2f8;
+      --text: #151626;
+      --text-soft: #64677a;
+      --border: rgba(21, 22, 38, 0.09);
+
+      --header-bg: rgba(255, 255, 255, 0.82);
+      --overlay: rgba(10, 12, 25, 0.72);
+
+      --shadow-sm: 0 8px 24px rgba(37, 39, 70, 0.07);
+      --shadow-md: 0 18px 50px rgba(37, 39, 70, 0.12);
+      --shadow-lg: 0 28px 80px rgba(37, 39, 70, 0.18);
+
+      --radius-sm: 12px;
+      --radius-md: 20px;
+      --radius-lg: 30px;
+
+      --container: 1200px;
+      --transition: 0.25s ease;
+    }
+
+    body.dark {
+      --bg: #0d0f18;
+      --surface: #151824;
+      --surface-soft: #1c2030;
+      --text: #f5f6ff;
+      --text-soft: #a8adc0;
+      --border: rgba(255, 255, 255, 0.09);
+
+      --header-bg: rgba(13, 15, 24, 0.84);
+      --overlay: rgba(2, 4, 12, 0.82);
+
+      --shadow-sm: 0 8px 24px rgba(0, 0, 0, 0.15);
+      --shadow-md: 0 18px 50px rgba(0, 0, 0, 0.25);
+      --shadow-lg: 0 28px 80px rgba(0, 0, 0, 0.35);
+    }
+
+    /* ==============================
+       RESET
+    ============================== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 100px;
+    }
+
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      color: var(--text);
+      background: var(--bg);
+      font-family: "Plus Jakarta Sans", sans-serif;
+      line-height: 1.65;
+      transition: background var(--transition), color var(--transition);
+    }
+
+    body.no-scroll {
+      overflow: hidden;
+    }
+
+    button,
+    input {
+      color: inherit;
+      font: inherit;
+    }
+
+    button {
+      border: 0;
+      cursor: pointer;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    .container {
+      width: min(calc(100% - 32px), var(--container));
+      margin-inline: auto;
+    }
+
+    .gradient-text {
+      color: transparent;
+      background: linear-gradient(135deg, var(--primary), #9d4edd, var(--secondary));
+      background-clip: text;
+      -webkit-background-clip: text;
+    }
+
+    .section {
+      padding: 86px 0;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 34px;
+    }
+
+    .section-heading h2 {
+      margin-bottom: 8px;
+      font-size: clamp(1.8rem, 4vw, 2.7rem);
+      line-height: 1.2;
+    }
+
+    .section-heading p {
+      max-width: 650px;
+      color: var(--text-soft);
+    }
+
+    .icon-btn {
+      display: grid;
+      width: 44px;
+      height: 44px;
+      place-items: center;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: var(--surface);
+      transition: var(--transition);
+    }
+
+    .icon-btn:hover {
+      color: #fff;
+      border-color: var(--primary);
+      background: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    /* ==============================
+       HEADER
+    ============================== */
+    .header {
+      position: sticky;
+      z-index: 1000;
+      top: 0;
+      border-bottom: 1px solid var(--border);
+      background: var(--header-bg);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .navbar {
+      display: flex;
+      min-height: 76px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-size: 1.3rem;
+      font-weight: 800;
+    }
+
+    .logo-mark {
+      display: grid;
+      width: 42px;
+      height: 42px;
+      color: #fff;
+      place-items: center;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--primary), #9b5cff);
+      box-shadow: 0 9px 25px rgba(109, 93, 252, 0.33);
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-menu a {
+      position: relative;
+      color: var(--text-soft);
+      font-size: 0.92rem;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    .nav-menu a:hover,
+    .nav-menu a.active {
+      color: var(--primary);
+    }
+
+    .nav-menu a::after {
+      position: absolute;
+      right: 0;
+      bottom: -8px;
+      left: 0;
+      height: 2px;
+      content: "";
+      border-radius: 99px;
+      background: var(--primary);
+      transform: scaleX(0);
+      transition: var(--transition);
+    }
+
+    .nav-menu a:hover::after,
+    .nav-menu a.active::after {
+      transform: scaleX(1);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .menu-toggle {
+      display: none;
+    }
+
+    /* ==============================
+       HERO
+    ============================== */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 78px 0 68px;
+    }
+
+    .hero::before,
+    .hero::after {
+      position: absolute;
+      z-index: -1;
+      width: 420px;
+      height: 420px;
+      content: "";
+      border-radius: 50%;
+      filter: blur(100px);
+      opacity: 0.18;
+    }
+
+    .hero::before {
+      top: -190px;
+      left: -120px;
+      background: var(--primary);
+    }
+
+    .hero::after {
+      right: -150px;
+      bottom: -200px;
+      background: var(--secondary);
+    }
+
+    .hero-content {
+      display: grid;
+      align-items: center;
+      gap: 50px;
+      grid-template-columns: 1.05fr 0.95fr;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 20px;
+      padding: 8px 13px;
+      color: var(--primary);
+      border: 1px solid rgba(109, 93, 252, 0.2);
+      border-radius: 999px;
+      background: rgba(109, 93, 252, 0.08);
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .hero-badge span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--secondary);
+      box-shadow: 0 0 0 5px rgba(19, 200, 163, 0.13);
+    }
+
+    .hero h1 {
+      max-width: 760px;
+      margin-bottom: 22px;
+      font-size: clamp(2.7rem, 6vw, 5.3rem);
+      letter-spacing: -0.055em;
+      line-height: 1.03;
+    }
+
+    .hero-description {
+      max-width: 660px;
+      margin-bottom: 30px;
+      color: var(--text-soft);
+      font-size: 1.05rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+    }
+
+    .btn {
+      display: inline-flex;
+      min-height: 50px;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 0 22px;
+      border-radius: 15px;
+      font-weight: 700;
+      transition: var(--transition);
+    }
+
+    .btn-primary {
+      color: #fff;
+      background: linear-gradient(135deg, var(--primary), #8a59ff);
+      box-shadow: 0 13px 30px rgba(109, 93, 252, 0.28);
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 17px 40px rgba(109, 93, 252, 0.4);
+      transform: translateY(-3px);
+    }
+
+    .btn-secondary {
+      border: 1px solid var(--border);
+      background: var(--surface);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+      margin-top: 38px;
+    }
+
+    .hero-stat strong {
+      display: block;
+      font-size: 1.35rem;
+    }
+
+    .hero-stat span {
+      color: var(--text-soft);
+      font-size: 0.82rem;
+    }
+
+    .featured-card {
+      position: relative;
+      min-height: 500px;
+      overflow: hidden;
+      color: #fff;
+      border-radius: var(--radius-lg);
+      background:
+        linear-gradient(to top, rgba(7, 8, 18, 0.94), rgba(7, 8, 18, 0.1)),
+        url("https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=85")
+        center/cover;
+      box-shadow: var(--shadow-lg);
+      transition: var(--transition);
+    }
+
+    .featured-card:hover {
+      transform: translateY(-6px) rotate(0.4deg);
+    }
+
+    .featured-label {
+      position: absolute;
+      top: 22px;
+      left: 22px;
+      padding: 8px 13px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 99px;
+      background: rgba(255, 255, 255, 0.16);
+      backdrop-filter: blur(12px);
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .featured-content {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      padding: 32px;
+    }
+
+    .featured-content h2 {
+      margin: 12px 0;
+      font-size: clamp(1.7rem, 4vw, 2.35rem);
+      line-height: 1.25;
+    }
+
+    .featured-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.8rem;
+    }
+
+    /* ==============================
+       SEARCH & CATEGORY
+    ============================== */
+    .discover-panel {
+      padding: 25px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: var(--surface);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .search-box {
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .search-box input {
+      width: 100%;
+      height: 56px;
+      padding: 0 52px 0 18px;
+      outline: none;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: var(--surface-soft);
+      transition: var(--transition);
+    }
+
+    .search-box input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(109, 93, 252, 0.1);
+    }
+
+    .search-icon {
+      position: absolute;
+      top: 50%;
+      right: 18px;
+      color: var(--text-soft);
+      transform: translateY(-50%);
+    }
+
+    .category-list {
+      display: flex;
+      overflow-x: auto;
+      gap: 10px;
+      padding-bottom: 4px;
+      scrollbar-width: none;
+    }
+
+    .category-list::-webkit-scrollbar {
+      display: none;
+    }
+
+    .category-btn {
+      flex: 0 0 auto;
+      padding: 10px 15px;
+      color: var(--text-soft);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: transparent;
+      font-size: 0.82rem;
+      font-weight: 700;
+      transition: var(--transition);
+    }
+
+    .category-btn:hover,
+    .category-btn.active {
+      color: #fff;
+      border-color: var(--primary);
+      background: var(--primary);
+    }
+
+    /* ==============================
+       ARTICLE CARDS
+    ============================== */
+    .articles-grid {
+      display: grid;
+      gap: 25px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .article-card {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: var(--surface);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+
+    .article-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-7px);
+    }
+
+    .article-image {
+      position: relative;
+      height: 220px;
+      overflow: hidden;
+    }
+
+    .article-image img {
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .article-card:hover .article-image img {
+      transform: scale(1.07);
+    }
+
+    .article-category {
+      position: absolute;
+      bottom: 14px;
+      left: 14px;
+      padding: 7px 11px;
+      color: #fff;
+      border-radius: 999px;
+      background: rgba(16, 17, 30, 0.7);
+      backdrop-filter: blur(10px);
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+
+    .article-body {
+      padding: 22px;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+      color: var(--text-soft);
+      font-size: 0.76rem;
+    }
+
+    .article-body h3 {
+      display: -webkit-box;
+      overflow: hidden;
+      margin-bottom: 10px;
+      font-size: 1.15rem;
+      line-height: 1.45;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+    }
+
+    .article-body p {
+      display: -webkit-box;
+      overflow: hidden;
+      margin-bottom: 19px;
+      color: var(--text-soft);
+      font-size: 0.88rem;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+    }
+
+    .article-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    .author {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .author-avatar {
+      display: grid;
+      width: 33px;
+      height: 33px;
+      color: #fff;
+      place-items: center;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      font-size: 0.72rem;
+    }
+
+    .read-btn {
+      color: var(--primary);
+      background: transparent;
+      font-size: 0.8rem;
+      font-weight: 800;
+    }
+
+    .read-btn:hover {
+      text-decoration: underline;
+    }
+
+    .empty-state {
+      display: none;
+      padding: 55px 20px;
+      text-align: center;
+      border: 1px dashed var(--border);
+      border-radius: var(--radius-md);
+      background: var(--surface);
+    }
+
+    .empty-state.show {
+      display: block;
+    }
+
+    .empty-state .emoji {
+      margin-bottom: 12px;
+      font-size: 3rem;
+    }
+
+    .load-more-wrapper {
+      margin-top: 36px;
+      text-align: center;
+    }
+
+    /* ==============================
+       TOPICS
+    ============================== */
+    .topics-section {
+      background: var(--surface);
+    }
+
+    .topics-grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .topic-card {
+      padding: 25px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: var(--bg);
+      transition: var(--transition);
+    }
+
+    .topic-card:hover {
+      color: #fff;
+      border-color: transparent;
+      background: linear-gradient(135deg, var(--primary), #8257ec);
+      box-shadow: 0 15px 35px rgba(109, 93, 252, 0.25);
+      transform: translateY(-6px);
+    }
+
+    .topic-icon {
+      display: grid;
+      width: 48px;
+      height: 48px;
+      margin-bottom: 18px;
+      place-items: center;
+      border-radius: 15px;
+      background: var(--surface);
+      font-size: 1.35rem;
+    }
+
+    .topic-card h3 {
+      margin-bottom: 7px;
+      font-size: 1rem;
+    }
+
+    .topic-card p {
+      color: var(--text-soft);
+      font-size: 0.8rem;
+    }
+
+    .topic-card:hover p {
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    /* ==============================
+       NEWSLETTER
+    ============================== */
+    .newsletter {
+      position: relative;
+      overflow: hidden;
+      color: #fff;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, #5c4cef, #8b55ec 56%, #13bfa0);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .newsletter::before {
+      position: absolute;
+      top: -120px;
+      right: -80px;
+      width: 330px;
+      height: 330px;
+      content: "";
+      border: 60px solid rgba(255, 255, 255, 0.08);
+      border-radius: 50%;
+    }
+
+    .newsletter-content {
+      position: relative;
+      display: grid;
+      align-items: center;
+      gap: 40px;
+      padding: 55px;
+      grid-template-columns: 1fr 0.8fr;
+    }
+
+    .newsletter h2 {
+      margin-bottom: 14px;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.2;
+    }
+
+    .newsletter p {
+      color: rgba(255, 255, 255, 0.76);
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 10px;
+      padding: 7px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 17px;
+      background: rgba(255, 255, 255, 0.13);
+      backdrop-filter: blur(10px);
+    }
+
+    .newsletter-form input {
+      min-width: 0;
+      flex: 1;
+      padding: 0 14px;
+      outline: none;
+      color: #fff;
+      border: 0;
+      background: transparent;
+    }
+
+    .newsletter-form input::placeholder {
+      color: rgba(255, 255, 255, 0.65);
+    }
+
+    .newsletter-form button {
+      min-height: 46px;
+      padding: 0 18px;
+      color: var(--primary);
+      border-radius: 12px;
+      background: #fff;
+      font-weight: 800;
+    }
+
+    /* ==============================
+       FOOTER
+    ============================== */
+    .footer {
+      margin-top: 90px;
+      padding: 65px 0 25px;
+      color: rgba(255, 255, 255, 0.7);
+      background: #11131e;
+    }
+
+    .footer-grid {
+      display: grid;
+      gap: 45px;
+      padding-bottom: 45px;
+      grid-template-columns: 1.5fr repeat(3, 1fr);
+    }
+
+    .footer .logo {
+      display: inline-flex;
+      margin-bottom: 17px;
+      color: #fff;
+    }
+
+    .footer-description {
+      max-width: 350px;
+      font-size: 0.88rem;
+    }
+
+    .footer h4 {
+      margin-bottom: 16px;
+      color: #fff;
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 10px;
+      font-size: 0.85rem;
+    }
+
+    .footer-links a:hover {
+      color: #fff;
+    }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 22px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 0.8rem;
+    }
+
+    /* ==============================
+       MODAL & TOAST
+    ============================== */
+    .modal {
+      position: fixed;
+      z-index: 2000;
+      inset: 0;
+      display: grid;
+      padding: 20px;
+      visibility: hidden;
+      place-items: center;
+      background: var(--overlay);
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .modal.show {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .modal-dialog {
+      width: min(100%, 780px);
+      max-height: 90vh;
+      overflow-y: auto;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: var(--surface);
+      box-shadow: var(--shadow-lg);
+      transform: translateY(25px) scale(0.98);
+      transition: var(--transition);
+    }
+
+    .modal.show .modal-dialog {
+      transform: translateY(0) scale(1);
+    }
+
+    .modal-image {
+      width: 100%;
+      height: 310px;
+      object-fit: cover;
+    }
+
+    .modal-content {
+      padding: 32px;
+    }
+
+    .modal-content h2 {
+      margin: 12px 0 16px;
+      font-size: clamp(1.6rem, 4vw, 2.5rem);
+      line-height: 1.25;
+    }
+
+    .modal-content p {
+      margin-bottom: 16px;
+      color: var(--text-soft);
+    }
+
+    .modal-close {
+      position: fixed;
+      z-index: 10;
+      top: 30px;
+      right: 30px;
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(10px);
+    }
+
+    .toast {
+      position: fixed;
+      z-index: 3000;
+      right: 20px;
+      bottom: 20px;
+      max-width: calc(100% - 40px);
+      padding: 15px 19px;
+      color: #fff;
+      border-radius: 13px;
+      background: #191b29;
+      box-shadow: var(--shadow-lg);
+      opacity: 0;
+      transform: translateY(30px);
+      pointer-events: none;
+      transition: var(--transition);
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ==============================
+       RESPONSIVE TABLET
+    ============================== */
+    @media (max-width: 980px) {
+      .nav-menu {
+        position: fixed;
+        top: 77px;
+        right: 16px;
+        left: 16px;
+        display: grid;
+        visibility: hidden;
+        gap: 0;
+        padding: 15px;
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        background: var(--surface);
+        box-shadow: var(--shadow-md);
+        opacity: 0;
+        transform: translateY(-12px);
+        transition: var(--transition);
+      }
+
+      .nav-menu.show {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .nav-menu a {
+        padding: 13px;
+        border-radius: 10px;
+      }
+
+      .nav-menu a:hover {
+        background: var(--surface-soft);
+      }
+
+      .nav-menu a::after {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: grid;
+      }
+
+      .hero-content {
+        grid-template-columns: 1fr;
+      }
+
+      .featured-card {
+        min-height: 440px;
+      }
+
+      .articles-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .topics-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .newsletter-content {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* ==============================
+       RESPONSIVE MOBILE
+    ============================== */
+    @media (max-width: 640px) {
+      .container {
+        width: min(calc(100% - 22px), var(--container));
+      }
+
+      .section {
+        padding: 65px 0;
+      }
+
+      .navbar {
+        min-height: 68px;
+      }
+
+      .nav-menu {
+        top: 69px;
+      }
+
+      .logo-mark {
+        width: 38px;
+        height: 38px;
+      }
+
+      .hero {
+        padding-top: 52px;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.5rem, 14vw, 4rem);
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .hero-stats {
+        display: grid;
+        gap: 18px;
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .hero-stat strong {
+        font-size: 1.05rem;
+      }
+
+      .hero-stat span {
+        font-size: 0.7rem;
+      }
+
+      .featured-card {
+        min-height: 420px;
+      }
+
+      .featured-content {
+        padding: 23px;
+      }
+
+      .discover-panel {
+        padding: 15px;
+      }
+
+      .section-heading {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .articles-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .article-image {
+        height: 235px;
+      }
+
+      .topics-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .newsletter-content {
+        padding: 35px 22px;
+      }
+
+      .newsletter-form {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .newsletter-form input {
+        min-height: 45px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-bottom {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .modal {
+        padding: 10px;
+      }
+
+      .modal-image {
+        height: 220px;
+      }
+
+      .modal-content {
+        padding: 22px;
+      }
+
+      .modal-close {
+        top: 17px;
+        right: 17px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container navbar">
+      <a href="#" class="logo" aria-label="RifqyBlog">
+        <span class="logo-mark">R</span>
+        <span>Rifqy<span class="gradient-text">Blog</span></span>
+      </a>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="#beranda" class="active">Beranda</a>
+        <a href="#artikel">Artikel</a>
+        <a href="#topik">Topik</a>
+        <a href="#newsletter">Newsletter</a>
+        <a href="#tentang">Tentang</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeToggle" aria-label="Ubah tema">
+          <span id="themeIcon">🌙</span>
+        </button>
+
+        <button class="icon-btn menu-toggle" id="menuToggle" aria-label="Buka menu">
+          <span id="menuIcon">☰</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="beranda">
+      <div class="container hero-content">
+        <div>
+          <div class="hero-badge">
+            <span></span>
+            Ide baru setiap hari
+          </div>
+
+          <h1>
+            Baca, belajar, dan temukan
+            <span class="gradient-text">inspirasi baru.</span>
+          </h1>
+
+          <p class="hero-description">
+            RifqyBlog membahas teknologi, desain, bisnis, produktivitas,
+            pendidikan, kesehatan, gaming, hingga gaya hidup dalam satu tempat.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#artikel" class="btn btn-primary">Jelajahi artikel →</a>
+            <a href="#newsletter" class="btn btn-secondary">Gabung newsletter</a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <strong>250+</strong>
+              <span>Artikel menarik</span>
+            </div>
+            <div class="hero-stat">
+              <strong>25K+</strong>
+              <span>Pembaca bulanan</span>
+            </div>
+            <div class="hero-stat">
+              <strong>12+</strong>
+              <span>Kategori topik</span>
+            </div>
+          </div>
+        </div>
+
+        <article class="featured-card">
+          <span class="featured-label">✨ Pilihan editor</span>
+
+          <div class="featured-content">
+            <div class="featured-meta">
+              <span>Teknologi</span>
+              <span>12 September 2026</span>
+              <span>8 menit baca</span>
+            </div>
+
+            <h2>Masa Depan AI dan Cara Teknologi Mengubah Kehidupan Kita</h2>
+
+            <button class="btn btn-primary" id="featuredRead">
+              Baca artikel
+            </button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ARTICLES -->
+    <section class="section" id="artikel">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <h2>Artikel terbaru</h2>
+            <p>
+              Jelajahi beragam wawasan, panduan, cerita, dan inspirasi pilihan.
+            </p>
+          </div>
+
+          <span id="resultCount">Menampilkan artikel</span>
+        </div>
+
+        <div class="discover-panel">
+          <div class="search-box">
+            <input
+              type="search"
+              id="searchInput"
+              placeholder="Cari artikel, kategori, atau topik..."
+              aria-label="Cari artikel"
+            />
+            <span class="search-icon">⌕</span>
+          </div>
+
+          <div class="category-list" id="categoryList"></div>
+        </div>
+
+        <div style="height: 30px"></div>
+
+        <div class="articles-grid" id="articlesGrid"></div>
+
+        <div class="empty-state" id="emptyState">
+          <div class="emoji">🔍</div>
+          <h3>Artikel tidak ditemukan</h3>
+          <p>Coba gunakan kata kunci atau kategori lainnya.</p>
+        </div>
+
+        <div class="load-more-wrapper">
+          <button class="btn btn-secondary" id="loadMore">
+            Tampilkan lebih banyak
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOPICS -->
+    <section class="section topics-section" id="topik">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <h2>Topik populer</h2>
+            <p>Pilih bidang yang ingin kamu pelajari lebih jauh.</p>
+          </div>
+        </div>
+
+        <div class="topics-grid">
+          <article class="topic-card">
+            <div class="topic-icon">💻</div>
+            <h3>Teknologi</h3>
+            <p>AI, gadget, software, coding, internet, dan inovasi digital.</p>
+          </article>
+
+          <article class="topic-card">
+            <div class="topic-icon">🎨</div>
+            <h3>Desain</h3>
+            <p>UI/UX, desain grafis, kreativitas, warna, dan tipografi.</p>
+          </article>
+
+          <article class="topic-card">
+            <div class="topic-icon">🚀</div>
+            <h3>Bisnis</h3>
+            <p>Startup, pemasaran, finansial, karier, dan kewirausahaan.</p>
+          </article>
+
+          <article class="topic-card">
+            <div class="topic-icon">🧠</div>
+            <h3>Produktivitas</h3>
+            <p>Kebiasaan, fokus, manajemen waktu, dan pengembangan diri.</p>
+          </article>
+
+          <article class="topic-card">
+            <div class="topic-icon">📚</div>
+            <h3>Pendidikan</h3>
+            <p>Belajar efektif, sekolah, kursus, beasiswa, dan pengetahuan.</p>
+          </article>
+
+          <article class="topic-card">
+            <div class="topic-icon">🌱</div>
+            <h3>Gaya Hidup</h3>
+            <p>Kesehatan, perjalanan, makanan, lingkungan, dan kehidupan.</p>
+          </article>
+
+          <article class="topic-card">
+            <div class="topic-icon">🎮</div>
+            <h3>Gaming</h3>
+            <p>Game terbaru, esports, rekomendasi, dan industri permainan.</p>
+          </article>
+
+          <article class="topic-card">
+            <div class="topic-icon">📷</div>
+            <h3>Kreativitas</h3>
+            <p>Fotografi, menulis, video, musik, dan berbagai karya kreatif.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="section" id="newsletter">
+      <div class="container">
+        <div class="newsletter">
+          <div class="newsletter-content">
+            <div>
+              <h2>Wawasan terbaik langsung ke emailmu.</h2>
+              <p>
+                Dapatkan artikel terbaru, tips pilihan, dan inspirasi setiap
+                minggu. Gratis dan tanpa spam.
+              </p>
+            </div>
+
+            <form class="newsletter-form" id="newsletterForm">
+              <input
+                type="email"
+                id="emailInput"
+                placeholder="nama@email.com"
+                aria-label="Alamat email"
+                required
+              />
+              <button type="submit">Berlangganan</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="tentang">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="#" class="logo">
+            <span class="logo-mark">R</span>
+            <span>RifqyBlog</span>
+          </a>
+
+          <p class="footer-description">
+            Ruang berbagi pengetahuan, inspirasi, dan ide untuk membantu
+            pembaca berkembang di dunia modern.
+          </p>
+        </div>
+
+        <div>
+          <h4>Jelajahi</h4>
+          <div class="footer-links">
+            <a href="#beranda">Beranda</a>
+            <a href="#artikel">Artikel</a>
+            <a href="#topik">Kategori</a>
+            <a href="#newsletter">Newsletter</a>
+          </div>
+        </div>
+
+        <div>
+          <h4>Kategori</h4>
+          <div class="footer-links">
+            <a href="#artikel">Teknologi</a>
+            <a href="#artikel">Desain</a>
+            <a href="#artikel">Bisnis</a>
+            <a href="#artikel">Produktivitas</a>
+          </div>
+        </div>
+
+        <div>
+          <h4>Informasi</h4>
+          <div class="footer-links">
+            <a href="#">Tentang kami</a>
+            <a href="#">Kontak</a>
+            <a href="#">Kebijakan privasi</a>
+            <a href="#">Syarat penggunaan</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© <span id="year"></span> RifqyBlog. Semua hak dilindungi.</p>
+        <p>Dibuat dengan ❤️ oleh RifqyDevices</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ARTICLE MODAL -->
+  <div class="modal" id="articleModal" aria-hidden="true">
+    <button class="icon-btn modal-close" id="modalClose" aria-label="Tutup">
+      ✕
+    </button>
+
+    <article class="modal-dialog">
+      <img class="modal-image" id="modalImage" src="" alt="" />
+
+      <div class="modal-content">
+        <div class="featured-meta" style="color: var(--text-soft)">
+          <span id="modalCategory"></span>
+          <span id="modalDate"></span>
+          <span id="modalReadTime"></span>
+        </div>
+
+        <h2 id="modalTitle"></h2>
+        <div id="modalArticle"></div>
+      </div>
+    </article>
+  </div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <script>
+    /* ==============================
+       ARTICLE DATA
+    ============================== */
+    const articles = [
+      {
+        title: "Bagaimana Artificial Intelligence Mengubah Dunia Modern",
+        category: "Teknologi",
+        date: "12 Sep 2026",
+        readTime: "8 menit",
+        image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=900&q=80",
+        excerpt: "Memahami perkembangan AI, dampaknya terhadap pekerjaan, pendidikan, bisnis, dan kehidupan sehari-hari.",
+        content: `
+          <p>Artificial Intelligence bukan lagi sekadar konsep masa depan. Teknologi ini telah hadir di ponsel, mesin pencari, kendaraan, layanan kesehatan, serta berbagai alat yang kita gunakan setiap hari.</p>
+          <p>AI membantu manusia menganalisis data dalam jumlah besar, mengotomatisasi pekerjaan berulang, dan mengambil keputusan dengan lebih cepat. Namun, penggunaannya tetap membutuhkan tanggung jawab, transparansi, dan pengawasan manusia.</p>
+          <p>Di masa depan, kemampuan memahami AI akan menjadi salah satu keterampilan penting. Kita tidak harus menjadi ahli pemrograman, tetapi perlu mengetahui cara menggunakan teknologi secara produktif, kreatif, aman, dan etis.</p>
+        `
+      },
+      {
+        title: "Panduan Membuat Website Modern untuk Pemula",
+        category: "Teknologi",
+        date: "10 Sep 2026",
+        readTime: "10 menit",
+        image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=900&q=80",
+        excerpt: "Pelajari HTML, CSS, JavaScript, responsive design, dan langkah penting untuk membangun website pertama.",
+        content: `
+          <p>Pembuatan website dimulai dari tiga teknologi utama: HTML untuk struktur, CSS untuk tampilan, dan JavaScript untuk interaksi.</p>
+          <p>Website modern harus cepat, mudah digunakan, responsif, memiliki kontras yang baik, dan tetap nyaman dibaca pada layar kecil maupun besar.</p>
+          <p>Mulailah dengan proyek sederhana seperti halaman profil atau blog pribadi. Setelah memahami dasar-dasarnya, lanjutkan ke framework dan teknologi backend.</p>
+        `
+      },
+      {
+        title: "Prinsip UI/UX agar Produk Digital Lebih Nyaman Digunakan",
+        category: "Desain",
+        date: "8 Sep 2026",
+        readTime: "7 menit",
+        image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=900&q=80",
+        excerpt: "Desain yang baik bukan hanya indah, tetapi juga mudah dipahami, konsisten, cepat, dan inklusif.",
+        content: `
+          <p>UI membahas tampilan antarmuka, sedangkan UX berfokus pada keseluruhan pengalaman pengguna ketika berinteraksi dengan sebuah produk.</p>
+          <p>Gunakan hierarki visual yang jelas, navigasi sederhana, ukuran teks yang nyaman, serta tombol dengan label yang mudah dimengerti.</p>
+          <p>Uji desain kepada pengguna nyata. Masukan dari pengguna sering kali menemukan masalah yang tidak terlihat selama proses desain.</p>
+        `
+      },
+      {
+        title: "Cara Meningkatkan Produktivitas Tanpa Mengalami Burnout",
+        category: "Produktivitas",
+        date: "7 Sep 2026",
+        readTime: "6 menit",
+        image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?auto=format&fit=crop&w=900&q=80",
+        excerpt: "Strategi sederhana untuk mengatur prioritas, menjaga energi, dan menyelesaikan pekerjaan secara sehat.",
+        content: `
+          <p>Produktivitas bukan tentang bekerja selama mungkin. Produktivitas adalah kemampuan menggunakan waktu dan energi untuk hal yang benar-benar penting.</p>
+          <p>Tentukan tiga prioritas utama setiap hari, kurangi gangguan, ambil jeda secara berkala, dan sediakan waktu untuk beristirahat.</p>
+          <p>Jangan mengukur nilai diri hanya dari jumlah tugas yang selesai. Kesehatan fisik dan mental merupakan bagian penting dari kinerja jangka panjang.</p>
+        `
+      },
+      {
+        title: "Ide Bisnis Digital yang Bisa Dimulai dari Rumah",
+        category: "Bisnis",
+        date: "5 Sep 2026",
+        readTime: "9 menit",
+        image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=900&q=80",
+        excerpt: "Dari jasa desain sampai produk digital, inilah peluang bisnis yang dapat dimulai dengan modal terjangkau.",
+        content: `
+          <p>Internet membuka kesempatan bagi siapa pun untuk membangun bisnis tanpa harus memiliki toko fisik atau tim besar.</p>
+          <p>Beberapa pilihan yang menarik adalah jasa desain, pengembangan website, kelas online, konsultasi, konten berbayar, template, dan produk digital.</p>
+          <p>Mulailah dengan masalah nyata yang dialami calon pelanggan. Validasi ide dalam skala kecil sebelum mengeluarkan biaya yang besar.</p>
+        `
+      },
+      {
+        title: "Teknik Belajar Efektif agar Materi Lebih Mudah Diingat",
+        category: "Pendidikan",
+        date: "3 Sep 2026",
+        readTime: "7 menit",
+        image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=900&q=80",
+        excerpt: "Gunakan active recall, spaced repetition, dan metode belajar terstruktur untuk hasil yang lebih baik.",
+        content: `
+          <p>Membaca materi berulang kali belum tentu menjadi cara belajar yang paling efektif. Otak membutuhkan latihan untuk mengambil kembali informasi.</p>
+          <p>Active recall dilakukan dengan mencoba menjawab pertanyaan tanpa melihat catatan. Spaced repetition mengatur pengulangan materi dalam jarak waktu tertentu.</p>
+          <p>Gabungkan kedua metode tersebut dengan tidur cukup, latihan soal, dan penjelasan ulang menggunakan bahasa sendiri.</p>
+        `
+      },
+      {
+        title: "Membangun Kebiasaan Hidup Sehat dari Langkah Kecil",
+        category: "Gaya Hidup",
+        date: "1 Sep 2026",
+        readTime: "5 menit",
+        image: "https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=900&q=80",
+        excerpt: "Kebiasaan sederhana yang dapat membantu meningkatkan kesehatan tubuh dan kualitas kehidupan.",
+        content: `
+          <p>Perubahan besar biasanya berasal dari kebiasaan kecil yang dilakukan secara konsisten.</p>
+          <p>Mulailah dengan memperbanyak air putih, berjalan kaki, mengonsumsi makanan seimbang, dan memperbaiki jadwal tidur.</p>
+          <p>Tidak perlu langsung sempurna. Pilih kebiasaan yang realistis dan tingkatkan secara bertahap sesuai kemampuan.</p>
+        `
+      },
+      {
+        title: "Mengapa Industri Gaming Terus Berkembang Pesat",
+        category: "Gaming",
+        date: "29 Agu 2026",
+        readTime: "8 menit",
+        image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=900&q=80",
+        excerpt: "Mengenal perkembangan esports, cloud gaming, perangkat baru, dan komunitas permainan digital.",
+        content: `
+          <p>Gaming telah berkembang menjadi industri hiburan global yang melibatkan teknologi, kreativitas, olahraga elektronik, dan komunitas.</p>
+          <p>Kehadiran perangkat mobile membuat game semakin mudah diakses. Sementara itu, cloud gaming berpotensi mengurangi ketergantungan terhadap perangkat mahal.</p>
+          <p>Industri ini juga menciptakan profesi baru, mulai dari developer, ilustrator, penulis cerita, analis esports, sampai content creator.</p>
+        `
+      },
+      {
+        title: "Panduan Fotografi Menggunakan Kamera Smartphone",
+        category: "Kreativitas",
+        date: "27 Agu 2026",
+        readTime: "6 menit",
+        image: "https://images.unsplash.com/photo-1452780212940-6f5c0d14d848?auto=format&fit=crop&w=900&q=80",
+        excerpt: "Hasilkan foto yang lebih menarik dengan memahami cahaya, komposisi, sudut, dan proses editing.",
+        content: `
+          <p>Kamera smartphone modern mampu menghasilkan foto berkualitas tinggi apabila digunakan dengan teknik yang tepat.</p>
+          <p>Perhatikan arah cahaya, bersihkan lensa, gunakan grid, dan hindari zoom digital berlebihan. Cobalah berbagai sudut untuk menemukan komposisi menarik.</p>
+          <p>Editing dapat memperbaiki warna dan pencahayaan, tetapi usahakan tetap mempertahankan karakter alami foto.</p>
+        `
+      },
+      {
+        title: "Dasar Keamanan Digital yang Wajib Diketahui",
+        category: "Teknologi",
+        date: "24 Agu 2026",
+        readTime: "9 menit",
+        image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=900&q=80",
+        excerpt: "Lindungi akun dan data pribadi dengan password kuat, autentikasi ganda, dan kebiasaan online yang aman.",
+        content: `
+          <p>Keamanan digital dimulai dari kebiasaan sederhana. Gunakan kata sandi unik untuk setiap akun dan aktifkan autentikasi dua faktor.</p>
+          <p>Waspadai pesan yang meminta data pribadi, kode OTP, atau mengarahkan kamu ke halaman login yang mencurigakan.</p>
+          <p>Lakukan pembaruan sistem secara rutin dan buat cadangan data penting untuk mengurangi risiko kehilangan data.</p>
+        `
+      },
+      {
+        title: "Cara Mengatur Keuangan Pribadi untuk Pemula",
+        category: "Bisnis",
+        date: "21 Agu 2026",
+        readTime: "7 menit",
+        image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=900&q=80",
+        excerpt: "Pelajari cara membuat anggaran, dana darurat, mencatat pengeluaran, dan merencanakan tujuan finansial.",
+        content: `
+          <p>Pengelolaan keuangan yang sehat tidak selalu bergantung pada jumlah penghasilan, tetapi pada cara mengatur dan menggunakan uang.</p>
+          <p>Catat pemasukan serta pengeluaran, susun anggaran, dan siapkan dana darurat secara bertahap.</p>
+          <p>Sebelum berinvestasi, pahami risiko dan tujuan finansial. Hindari keputusan yang hanya didasarkan pada tren atau rasa takut tertinggal.</p>
+        `
+      },
+      {
+        title: "Seni Menulis Konten yang Menarik dan Mudah Dipahami",
+        category: "Kreativitas",
+        date: "18 Agu 2026",
+        readTime: "6 menit",
+        image: "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=900&q=80",
+        excerpt: "Temukan cara memilih judul, membuat struktur, dan menyampaikan gagasan dengan bahasa yang kuat.",
+        content: `
+          <p>Tulisan yang baik membantu pembaca memahami sebuah ide tanpa merasa kelelahan.</p>
+          <p>Gunakan judul yang jelas, paragraf pendek, contoh konkret, dan struktur yang membawa pembaca dari masalah menuju solusi.</p>
+          <p>Setelah menulis, lakukan penyuntingan. Hapus pengulangan dan sederhanakan kalimat yang terlalu panjang.</p>
+        `
+      },
+      {
+        title: "Mengenal Internet of Things dan Smart Home",
+        category: "Teknologi",
+        date: "15 Agu 2026",
+        readTime: "8 menit",
+        image: "https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=900&q=80",
+        excerpt: "Bagaimana perangkat pintar saling terhubung untuk menciptakan rumah yang lebih nyaman dan efisien.",
+        content: `
+          <p>Internet of Things menghubungkan perangkat fisik ke jaringan sehingga perangkat tersebut dapat mengirim dan menerima data.</p>
+          <p>Dalam smart home, teknologi ini digunakan pada lampu, kamera, sensor, pendingin ruangan, dan berbagai peralatan rumah tangga.</p>
+          <p>Kenyamanan harus tetap diimbangi dengan keamanan. Gunakan jaringan terlindungi dan selalu perbarui perangkat lunak.</p>
+        `
+      },
+      {
+        title: "Membangun Personal Branding di Era Digital",
+        category: "Produktivitas",
+        date: "12 Agu 2026",
+        readTime: "7 menit",
+        image: "https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=900&q=80",
+        excerpt: "Tampilkan kemampuan, nilai, dan karya secara konsisten untuk membangun reputasi profesional.",
+        content: `
+          <p>Personal branding adalah cara orang lain memahami kemampuan, nilai, dan karakter profesional kita.</p>
+          <p>Tentukan bidang utama, bagikan karya, tulis pengalaman, serta bangun relasi dengan komunitas yang relevan.</p>
+          <p>Keaslian dan konsistensi lebih penting daripada terlihat sempurna. Bangun reputasi melalui tindakan nyata dan kontribusi bermanfaat.</p>
+        `
+      },
+      {
+        title: "Tips Traveling Hemat tetapi Tetap Menyenangkan",
+        category: "Gaya Hidup",
+        date: "8 Agu 2026",
+        readTime: "6 menit",
+        image: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=900&q=80",
+        excerpt: "Susun perjalanan, akomodasi, makanan, dan transportasi agar liburan tetap seru tanpa boros.",
+        content: `
+          <p>Traveling hemat dimulai dari perencanaan yang baik. Tentukan anggaran dan prioritas sebelum memilih destinasi.</p>
+          <p>Bandingkan harga transportasi, pesan akomodasi lebih awal, dan cari rekomendasi makanan lokal dengan harga terjangkau.</p>
+          <p>Sisakan dana cadangan dan hindari jadwal terlalu padat agar perjalanan tetap nyaman.</p>
+        `
+      },
+      {
+        title: "Pentingnya Soft Skill untuk Masa Depan Karier",
+        category: "Pendidikan",
+        date: "5 Agu 2026",
+        readTime: "7 menit",
+        image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=900&q=80",
+        excerpt: "Komunikasi, kolaborasi, adaptasi, dan pemecahan masalah menjadi kemampuan penting di dunia kerja.",
+        content: `
+          <p>Kemampuan teknis membantu seseorang menyelesaikan pekerjaan, sedangkan soft skill membantu bekerja secara efektif bersama orang lain.</p>
+          <p>Komunikasi, kolaborasi, rasa ingin tahu, adaptasi, dan kemampuan menyelesaikan masalah dibutuhkan hampir di semua bidang.</p>
+          <p>Soft skill dapat dilatih melalui proyek kelompok, organisasi, presentasi, dan kebiasaan menerima masukan secara terbuka.</p>
+        `
+      }
+    ];
+
+    /* ==============================
+       STATE
+    ============================== */
+    const articlesGrid = document.getElementById("articlesGrid");
+    const categoryList = document.getElementById("categoryList");
+    const searchInput = document.getElementById("searchInput");
+    const loadMoreButton = document.getElementById("loadMore");
+    const emptyState = document.getElementById("emptyState");
+    const resultCount = document.getElementById("resultCount");
+
+    let selectedCategory = "Semua";
+    let searchKeyword = "";
+    let visibleCount = 6;
+
+    const categories = [
+      "Semua",
+      ...new Set(articles.map(article => article.category))
+    ];
+
+    /* ==============================
+       RENDER CATEGORIES
+    ============================== */
+    function renderCategories() {
+      categoryList.innerHTML = categories
+        .map(category => `
+          <button
+            class="category-btn ${category === selectedCategory ? "active" : ""}"
+            data-category="${category}"
+          >
+            ${category}
+          </button>
+        `)
+        .join("");
+
+      document.querySelectorAll(".category-btn").forEach(button => {
+        button.addEventListener("click", () => {
+          selectedCategory = button.dataset.category;
+          visibleCount = 6;
+          renderCategories();
+          renderArticles();
+        });
+      });
+    }
+
+    /* ==============================
+       FILTER & RENDER ARTICLES
+    ============================== */
+    function getFilteredArticles() {
+      const keyword = searchKeyword.toLowerCase().trim();
+
+      return articles.filter(article => {
+        const matchesCategory =
+          selectedCategory === "Semua" ||
+          article.category === selectedCategory;
+
+        const matchesKeyword =
+          article.title.toLowerCase().includes(keyword) ||
+          article.category.toLowerCase().includes(keyword) ||
+          article.excerpt.toLowerCase().includes(keyword);
+
+        return matchesCategory && matchesKeyword;
+      });
+    }
+
+    function renderArticles() {
+      const filteredArticles = getFilteredArticles();
+      const visibleArticles = filteredArticles.slice(0, visibleCount);
+
+      resultCount.textContent =
+        `${filteredArticles.length} artikel ditemukan`;
+
+      articlesGrid.innerHTML = visibleArticles
+        .map(article => {
+          const originalIndex = articles.indexOf(article);
+
+          return `
+            <article class="article-card">
+              <div class="article-image">
+                <img
+                  src="${article.image}"
+                  alt="${article.title}"
+                  loading="lazy"
+                />
+                <span class="article-category">${article.category}</span>
+              </div>
+
+              <div class="article-body">
+                <div class="article-meta">
+                  <span>${article.date}</span>
+                  <span>${article.readTime}</span>
+                </div>
+
+                <h3>${article.title}</h3>
+                <p>${article.excerpt}</p>
+
+                <div class="article-footer">
+                  <div class="author">
+                    <span class="author-avatar">RD</span>
+                    <span>RifqyDevices</span>
+                  </div>
+
+                  <button
+                    class="read-btn"
+                    data-index="${originalIndex}"
+                  >
+                    Baca →
+                  </button>
+                </div>
+              </div>
+            </article>
+          `;
+        })
+        .join("");
+
+      emptyState.classList.toggle("show", filteredArticles.length === 0);
+      loadMoreButton.style.display =
+        filteredArticles.length > visibleCount ? "inline-flex" : "none";
+
+      document.querySelectorAll(".read-btn").forEach(button => {
+        button.addEventListener("click", () => {
+          openArticle(Number(button.dataset.index));
+        });
+      });
+    }
+
+    searchInput.addEventListener("input", event => {
+      searchKeyword = event.target.value;
+      visibleCount = 6;
+      renderArticles();
+    });
+
+    loadMoreButton.addEventListener("click", () => {
+      visibleCount += 6;
+      renderArticles();
+    });
+
+    /* ==============================
+       ARTICLE MODAL
+    ============================== */
+    const articleModal = document.getElementById("articleModal");
+    const modalClose = document.getElementById("modalClose");
+    const modalImage = document.getElementById("modalImage");
+    const modalCategory = document.getElementById("modalCategory");
+    const modalDate = document.getElementById("modalDate");
+    const modalReadTime = document.getElementById("modalReadTime");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalArticle = document.getElementById("modalArticle");
+
+    function openArticle(index) {
+      const article = articles[index];
+
+      modalImage.src = article.image;
+      modalImage.alt = article.title;
+      modalCategory.textContent = article.category;
+      modalDate.textContent = article.date;
+      modalReadTime.textContent = article.readTime;
+      modalTitle.textContent = article.title;
+      modalArticle.innerHTML = article.content;
+
+      articleModal.classList.add("show");
+      articleModal.setAttribute("aria-hidden", "false");
+      document.body.classList.add("no-scroll");
+    }
+
+    function closeArticle() {
+      articleModal.classList.remove("show");
+      articleModal.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("no-scroll");
+    }
+
+    modalClose.addEventListener("click", closeArticle);
+
+    articleModal.addEventListener("click", event => {
+      if (event.target === articleModal) {
+        closeArticle();
+      }
+    });
+
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape") {
+        closeArticle();
+      }
+    });
+
+    document.getElementById("featuredRead").addEventListener("click", () => {
+      openArticle(0);
+    });
+
+    /* ==============================
+       DARK MODE
+    ============================== */
+    const themeToggle = document.getElementById("themeToggle");
+    const themeIcon = document.getElementById("themeIcon");
+
+    function applyTheme(theme) {
+      const darkMode = theme === "dark";
+      document.body.classList.toggle("dark", darkMode);
+      themeIcon.textContent = darkMode ? "☀️" : "🌙";
+      localStorage.setItem("rifqyblog-theme", theme);
+    }
+
+    const savedTheme = localStorage.getItem("rifqyblog-theme");
+    const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+    applyTheme(savedTheme || (systemDark ? "dark" : "light"));
+
+    themeToggle.addEventListener("click", () => {
+      const nextTheme =
+        document.body.classList.contains("dark") ? "light" : "dark";
+
+      applyTheme(nextTheme);
+    });
+
+    /* ==============================
+       MOBILE MENU
+    ============================== */
+    const menuToggle = document.getElementById("menuToggle");
+    const menuIcon = document.getElementById("menuIcon");
+    const navMenu = document.getElementById("navMenu");
+
+    menuToggle.addEventListener("click", () => {
+      navMenu.classList.toggle("show");
+      menuIcon.textContent = navMenu.classList.contains("show") ? "✕" : "☰";
+    });
+
+    document.querySelectorAll(".nav-menu a").forEach(link => {
+      link.addEventListener("click", () => {
+        navMenu.classList.remove("show");
+        menuIcon.textContent = "☰";
+      });
+    });
+
+    document.addEventListener("click", event => {
+      const clickedOutside =
+        !navMenu.contains(event.target) &&
+        !menuToggle.contains(event.target);
+
+      if (clickedOutside) {
+        navMenu.classList.remove("show");
+        menuIcon.textContent = "☰";
+      }
+    });
+
+    /* ==============================
+       NEWSLETTER & TOAST
+    ============================== */
+    const newsletterForm = document.getElementById("newsletterForm");
+    const emailInput = document.getElementById("emailInput");
+    const toast = document.getElementById("toast");
+
+    let toastTimer;
+
+    function showToast(message) {
+      clearTimeout(toastTimer);
+      toast.textContent = message;
+      toast.classList.add("show");
+
+      toastTimer = setTimeout(() => {
+        toast.classList.remove("show");
+      }, 3000);
+    }
+
+    newsletterForm.addEventListener("submit", event => {
+      event.preventDefault();
+
+      const email = emailInput.value.trim();
+
+      if (!email) {
+        showToast("Silakan masukkan alamat email.");
+        return;
+      }
+
+      showToast("🎉 Berhasil! Kamu telah bergabung dengan RifqyBlog.");
+      newsletterForm.reset();
+    });
+
+    /* ==============================
+       ACTIVE NAVIGATION
+    ============================== */
+    const sections = document.querySelectorAll("main section[id]");
+    const navigationLinks = document.querySelectorAll(".nav-menu a");
+
+    window.addEventListener("scroll", () => {
+      let currentSection = "beranda";
+
+      sections.forEach(section => {
+        if (window.scrollY >= section.offsetTop - 160) {
+          currentSection = section.id;
+        }
+      });
+
+      navigationLinks.forEach(link => {
+        link.classList.toggle(
+          "active",
+          link.getAttribute("href") === `#${currentSection}`
+        );
+      });
+    });
+
+    /* ==============================
+       INITIALIZATION
+    ============================== */
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    renderCategories();
+    renderArticles();
+  </script>
+</body>
+</html>
