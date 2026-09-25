@@ -6,21 +6,21 @@
 
   <meta
     name="description"
-    content="RifqyBlog adalah blog modern yang membahas teknologi, desain, produktivitas, bisnis, gaya hidup, pendidikan, dan berbagai topik menarik lainnya."
+    content="RifqyBlog adalah publikasi modern yang membahas teknologi, desain, produktivitas, bisnis, gaya hidup, pendidikan, dan berbagai topik mendalam lainnya."
   />
   <meta
     name="keywords"
     content="RifqyBlog, blog Indonesia, teknologi, desain, bisnis, pendidikan, produktivitas"
   />
   <meta name="author" content="RifqyDevices" />
-  <meta name="theme-color" content="#6d5dfc" />
+  <meta name="theme-color" content="#0a0a0a" />
 
-  <title>RifqyBlog — Temukan Ide dan Inspirasi</title>
+  <title>RifqyBlog — Publikasi Ide, Analisis, dan Inspirasi</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&display=swap"
     rel="stylesheet"
   />
 
@@ -28,12 +28,25 @@
 </head>
 
 <body>
+  <!-- ANNOUNCEMENT BAR -->
+  <div class="announcement-bar">
+    <div class="container announcement-content">
+      <span class="announcement-dot"></span>
+      <span>Edisi September 2026 — Analisis lengkap GPT-6 Astra, Claude Opus 5.5, dan dinamika industri AI terkini</span>
+      <a href="#artikel" class="announcement-link">Baca sekarang
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+
   <!-- HEADER -->
   <header class="header">
     <div class="container navbar">
       <a href="#" class="logo" aria-label="RifqyBlog">
         <span class="logo-mark">R</span>
-        <span>Rifqy<span class="gradient-text">Blog</span></span>
+        <span class="logo-text">Rifqy<span class="logo-accent">Blog</span></span>
       </a>
 
       <nav class="nav-menu" id="navMenu">
@@ -46,11 +59,30 @@
 
       <div class="nav-actions">
         <button class="icon-btn" id="themeToggle" aria-label="Ubah tema">
-          <span id="themeIcon">🌙</span>
+          <svg class="theme-icon icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg class="theme-icon icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
         </button>
 
+        <a href="#newsletter" class="btn btn-nav">Berlangganan</a>
+
         <button class="icon-btn menu-toggle" id="menuToggle" aria-label="Buka menu">
-          <span id="menuIcon">☰</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
         </button>
       </div>
     </div>
@@ -60,97 +92,142 @@
     <!-- HERO -->
     <section class="hero" id="beranda">
       <div class="container hero-content">
-        <div>
+        <div class="hero-left">
           <div class="hero-badge">
-            <span></span>
-            Ide baru setiap hari
+            <span class="badge-dot"></span>
+            <span>Publikasi Independen · Sejak 2024</span>
           </div>
 
-          <h1>
-            Baca, belajar, dan temukan
-            <span class="gradient-text">inspirasi baru.</span>
+          <h1 class="hero-title">
+            Baca, telaah, dan temukan
+            <span class="hero-title-accent">perspektif baru.</span>
           </h1>
 
           <p class="hero-description">
-            RifqyBlog membahas teknologi, desain, bisnis, produktivitas,
-            pendidikan, kesehatan, gaming, hingga gaya hidup dalam satu tempat.
+            RifqyBlog menghadirkan analisis mendalam tentang teknologi, desain, bisnis, produktivitas, pendidikan, dan gaya hidup — dirangkum untuk pembaca yang menghargai kualitas di atas kebisingan.
           </p>
 
           <div class="hero-actions">
-            <a href="#artikel" class="btn btn-primary">Jelajahi artikel →</a>
+            <a href="#artikel" class="btn btn-primary">
+              Jelajahi artikel
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
             <a href="#newsletter" class="btn btn-secondary">Gabung newsletter</a>
           </div>
 
           <div class="hero-stats">
             <div class="hero-stat">
               <strong>250+</strong>
-              <span>Artikel menarik</span>
+              <span>Artikel terkurasi</span>
             </div>
+            <div class="hero-stat-divider"></div>
             <div class="hero-stat">
               <strong>25K+</strong>
               <span>Pembaca bulanan</span>
             </div>
+            <div class="hero-stat-divider"></div>
             <div class="hero-stat">
-              <strong>12+</strong>
+              <strong>12</strong>
               <span>Kategori topik</span>
             </div>
           </div>
         </div>
 
         <article class="featured-card">
-          <span class="featured-label">✨ Pilihan editor</span>
+          <div class="featured-image-wrapper">
+            <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80" alt="Masa Depan AI" class="featured-image" />
+            <span class="featured-label">Pilihan Editor</span>
+          </div>
 
           <div class="featured-content">
             <div class="featured-meta">
-              <span>Teknologi</span>
-              <span>12 September 2026</span>
+              <span class="meta-category">Teknologi</span>
+              <span class="meta-separator"></span>
+              <span>25 September 2026</span>
+              <span class="meta-separator"></span>
               <span>8 menit baca</span>
             </div>
 
-            <h2>Masa Depan AI dan Cara Teknologi Mengubah Kehidupan Kita</h2>
+            <h2 class="featured-title">Masa Depan AI dan Cara Teknologi Mengubah Kehidupan Kita</h2>
+            <p class="featured-excerpt">Analisis mendalam tentang bagaimana kecerdasan buatan membentuk ulang industri, pekerjaan, dan interaksi manusia dengan teknologi dalam satu dekade ke depan.</p>
 
             <button class="btn btn-primary" id="featuredRead">
               Baca artikel
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
             </button>
           </div>
         </article>
       </div>
     </section>
 
+    <!-- TRUST BAR -->
+    <section class="trust-bar">
+      <div class="container">
+        <div class="trust-content">
+          <span class="trust-label">Dipercaya oleh pembaca dari</span>
+          <div class="trust-logos">
+            <span>Tokopedia</span>
+            <span class="trust-dot"></span>
+            <span>Gojek</span>
+            <span class="trust-dot"></span>
+            <span>Bukalapak</span>
+            <span class="trust-dot"></span>
+            <span>Traveloka</span>
+            <span class="trust-dot"></span>
+            <span>Shopee</span>
+            <span class="trust-dot"></span>
+            <span>Telkom</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ARTICLES -->
-    <section class="section" id="artikel">
+    <section class="section articles-section" id="artikel">
       <div class="container">
         <div class="section-heading">
           <div>
+            <span class="section-eyebrow">Perpustakaan</span>
             <h2>Artikel terbaru</h2>
-            <p>
-              Jelajahi beragam wawasan, panduan, cerita, dan inspirasi pilihan.
+            <p class="section-lead">
+              Jelajahi beragam wawasan, panduan, cerita, dan inspirasi pilihan redaksi.
             </p>
           </div>
 
-          <span id="resultCount">Menampilkan artikel</span>
+          <span class="result-count" id="resultCount">Menampilkan artikel</span>
         </div>
 
         <div class="discover-panel">
           <div class="search-box">
+            <svg class="search-icon-svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
             <input
               type="search"
               id="searchInput"
               placeholder="Cari artikel, kategori, atau topik..."
               aria-label="Cari artikel"
             />
-            <span class="search-icon">⌕</span>
+            <kbd class="search-kbd">⌘K</kbd>
           </div>
 
           <div class="category-list" id="categoryList"></div>
         </div>
 
-        <div style="height: 30px"></div>
-
         <div class="articles-grid" id="articlesGrid"></div>
 
         <div class="empty-state" id="emptyState">
-          <div class="emoji">🔍</div>
+          <div class="empty-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </div>
           <h3>Artikel tidak ditemukan</h3>
           <p>Coba gunakan kata kunci atau kategori lainnya.</p>
         </div>
@@ -158,6 +235,9 @@
         <div class="load-more-wrapper">
           <button class="btn btn-secondary" id="loadMore">
             Tampilkan lebih banyak
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M6 9l6 6 6-6"/>
+            </svg>
           </button>
         </div>
       </div>
@@ -166,87 +246,189 @@
     <!-- TOPICS -->
     <section class="section topics-section" id="topik">
       <div class="container">
-        <div class="section-heading">
+        <div class="section-heading section-heading-center">
           <div>
+            <span class="section-eyebrow">Eksplorasi</span>
             <h2>Topik populer</h2>
-            <p>Pilih bidang yang ingin kamu pelajari lebih jauh.</p>
+            <p class="section-lead">Pilih bidang yang ingin kamu pelajari lebih jauh.</p>
           </div>
         </div>
 
         <div class="topics-grid">
           <article class="topic-card">
-            <div class="topic-icon">💻</div>
+            <div class="topic-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+              </svg>
+            </div>
             <h3>Teknologi</h3>
             <p>AI, gadget, software, coding, internet, dan inovasi digital.</p>
+            <span class="topic-count">84 artikel</span>
           </article>
 
           <article class="topic-card">
-            <div class="topic-icon">🎨</div>
+            <div class="topic-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+                <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+                <path d="M2 2l7.586 7.586"></path>
+                <circle cx="11" cy="11" r="2"></circle>
+              </svg>
+            </div>
             <h3>Desain</h3>
             <p>UI/UX, desain grafis, kreativitas, warna, dan tipografi.</p>
+            <span class="topic-count">42 artikel</span>
           </article>
 
           <article class="topic-card">
-            <div class="topic-icon">🚀</div>
+            <div class="topic-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
             <h3>Bisnis</h3>
             <p>Startup, pemasaran, finansial, karier, dan kewirausahaan.</p>
+            <span class="topic-count">56 artikel</span>
           </article>
 
           <article class="topic-card">
-            <div class="topic-icon">🧠</div>
+            <div class="topic-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.378 3.378 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.864.34-1.677.95-2.292l.547-.547z"></path>
+              </svg>
+            </div>
             <h3>Produktivitas</h3>
             <p>Kebiasaan, fokus, manajemen waktu, dan pengembangan diri.</p>
+            <span class="topic-count">38 artikel</span>
           </article>
 
           <article class="topic-card">
-            <div class="topic-icon">📚</div>
+            <div class="topic-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 19.5A2.5 2.5 0 016.5 17H20"></path>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"></path>
+              </svg>
+            </div>
             <h3>Pendidikan</h3>
             <p>Belajar efektif, sekolah, kursus, beasiswa, dan pengetahuan.</p>
+            <span class="topic-count">27 artikel</span>
           </article>
 
           <article class="topic-card">
-            <div class="topic-icon">🌱</div>
+            <div class="topic-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                <path d="M2 17l10 5 10-5M2 12l10 5 10-5"></path>
+              </svg>
+            </div>
             <h3>Gaya Hidup</h3>
             <p>Kesehatan, perjalanan, makanan, lingkungan, dan kehidupan.</p>
+            <span class="topic-count">31 artikel</span>
           </article>
 
           <article class="topic-card">
-            <div class="topic-icon">🎮</div>
+            <div class="topic-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+              </svg>
+            </div>
             <h3>Gaming</h3>
             <p>Game terbaru, esports, rekomendasi, dan industri permainan.</p>
+            <span class="topic-count">22 artikel</span>
           </article>
 
           <article class="topic-card">
-            <div class="topic-icon">📷</div>
+            <div class="topic-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"></path>
+                <circle cx="12" cy="13" r="4"></circle>
+              </svg>
+            </div>
             <h3>Kreativitas</h3>
             <p>Fotografi, menulis, video, musik, dan berbagai karya kreatif.</p>
+            <span class="topic-count">19 artikel</span>
           </article>
         </div>
       </div>
     </section>
 
+    <!-- EDITORIAL QUOTE -->
+    <section class="section editorial-section">
+      <div class="container">
+        <div class="editorial-card">
+          <svg class="editorial-quote-mark" width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M9.17 6C5.77 6 3 8.76 3 12.17V18h6v-6H5.5c0-2.49 1.84-4.33 4.33-4.33V6h-.66zm9 0c-3.4 0-6.17 2.76-6.17 6.17V18h6v-6h-3.5c0-2.49 1.84-4.33 4.33-4.33V6h-.66z"/>
+          </svg>
+          <blockquote>
+            Kami percaya bahwa di tengah kebisingan informasi, yang paling berharga adalah tulisan yang mengajak pembaca berpikir lebih dalam — bukan sekadar tahu lebih banyak.
+          </blockquote>
+          <div class="editorial-author">
+            <div class="author-avatar">RD</div>
+            <div>
+              <strong>RifqyDevices</strong>
+              <span>Pendiri & Editor in Chief</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- NEWSLETTER -->
-    <section class="section" id="newsletter">
+    <section class="section newsletter-section" id="newsletter">
       <div class="container">
         <div class="newsletter">
+          <div class="newsletter-decoration"></div>
           <div class="newsletter-content">
             <div>
+              <span class="section-eyebrow section-eyebrow-light">Newsletter</span>
               <h2>Wawasan terbaik langsung ke emailmu.</h2>
               <p>
-                Dapatkan artikel terbaru, tips pilihan, dan inspirasi setiap
-                minggu. Gratis dan tanpa spam.
+                Dapatkan artikel terbaru, analisis pilihan, dan perspektif baru setiap minggu. Dibaca oleh 25.000+ profesional di Indonesia. Gratis, tanpa spam, berhenti kapan saja.
               </p>
+              <div class="newsletter-features">
+                <div class="newsletter-feature">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>Kurasi mingguan</span>
+                </div>
+                <div class="newsletter-feature">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>Akses eksklusif</span>
+                </div>
+                <div class="newsletter-feature">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                  <span>Tanpa iklan</span>
+                </div>
+              </div>
             </div>
 
             <form class="newsletter-form" id="newsletterForm">
-              <input
-                type="email"
-                id="emailInput"
-                placeholder="nama@email.com"
-                aria-label="Alamat email"
-                required
-              />
-              <button type="submit">Berlangganan</button>
+              <div class="newsletter-input-wrapper">
+                <input
+                  type="email"
+                  id="emailInput"
+                  placeholder="nama@email.com"
+                  aria-label="Alamat email"
+                  required
+                />
+                <button type="submit" class="btn btn-newsletter">
+                  Berlangganan
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </button>
+              </div>
+              <p class="newsletter-disclaimer">
+                Dengan berlangganan, kamu menyetujui <a href="#">Kebijakan Privasi</a> kami.
+              </p>
             </form>
           </div>
         </div>
@@ -257,20 +439,42 @@
   <!-- FOOTER -->
   <footer class="footer" id="tentang">
     <div class="container">
-      <div class="footer-grid">
-        <div>
+      <div class="footer-top">
+        <div class="footer-brand">
           <a href="#" class="logo">
             <span class="logo-mark">R</span>
-            <span>RifqyBlog</span>
+            <span class="logo-text">RifqyBlog</span>
           </a>
-
           <p class="footer-description">
-            Ruang berbagi pengetahuan, inspirasi, dan ide untuk membantu
-            pembaca berkembang di dunia modern.
+            Publikasi independen yang menghadirkan analisis mendalam, perspektif segar, dan inspirasi untuk pembaca yang menghargai kualitas berpikir.
           </p>
+          <div class="social-links">
+            <a href="#" aria-label="Twitter" class="social-link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            </a>
+            <a href="#" aria-label="Instagram" class="social-link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <a href="#" aria-label="LinkedIn" class="social-link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
+            <a href="#" aria-label="GitHub" class="social-link">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C5.374 0 0 5.373 0 12 0 17.302 3.438 21.8 8.207 23.387c.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.565 21.796 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+              </svg>
+            </a>
+          </div>
         </div>
 
-        <div>
+        <div class="footer-links-group">
           <h4>Jelajahi</h4>
           <div class="footer-links">
             <a href="#beranda">Beranda</a>
@@ -280,30 +484,32 @@
           </div>
         </div>
 
-        <div>
+        <div class="footer-links-group">
           <h4>Kategori</h4>
           <div class="footer-links">
             <a href="#artikel">Teknologi</a>
             <a href="#artikel">Desain</a>
             <a href="#artikel">Bisnis</a>
             <a href="#artikel">Produktivitas</a>
+            <a href="#artikel">Pendidikan</a>
           </div>
         </div>
 
-        <div>
+        <div class="footer-links-group">
           <h4>Informasi</h4>
           <div class="footer-links">
             <a href="#">Tentang kami</a>
             <a href="#">Kontak</a>
             <a href="#">Kebijakan privasi</a>
             <a href="#">Syarat penggunaan</a>
+            <a href="#">RSS Feed</a>
           </div>
         </div>
       </div>
 
       <div class="footer-bottom">
         <p>© <span id="year"></span> RifqyBlog. Semua hak dilindungi.</p>
-        <p>Dibuat dengan ❤️ oleh RifqyDevices</p>
+        <p class="footer-credit">Dibuat dengan teliti oleh RifqyDevices</p>
       </div>
     </div>
   </footer>
@@ -311,7 +517,10 @@
   <!-- ARTICLE MODAL -->
   <div class="modal" id="articleModal" aria-hidden="true">
     <button class="icon-btn modal-close" id="modalClose" aria-label="Tutup">
-      ✕
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
     </button>
 
     <article class="modal-dialog">
@@ -319,13 +528,38 @@
 
       <div class="modal-content">
         <div class="featured-meta" style="color: var(--text-soft)">
-          <span id="modalCategory"></span>
+          <span id="modalCategory" class="meta-category"></span>
+          <span class="meta-separator"></span>
           <span id="modalDate"></span>
+          <span class="meta-separator"></span>
           <span id="modalReadTime"></span>
         </div>
 
         <h2 id="modalTitle"></h2>
-        <div id="modalArticle"></div>
+        <div class="modal-body" id="modalArticle"></div>
+
+        <div class="modal-footer">
+          <div class="modal-share">
+            <span class="share-label">Bagikan artikel ini</span>
+            <div class="share-buttons">
+              <button class="share-btn" aria-label="Share">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="18" cy="5" r="3"></circle>
+                  <circle cx="6" cy="12" r="3"></circle>
+                  <circle cx="18" cy="19" r="3"></circle>
+                  <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                  <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                </svg>
+              </button>
+              <button class="share-btn" aria-label="Copy link">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"></path>
+                  <path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </article>
   </div>
@@ -338,4 +572,4 @@
   <script src="artikel-lama.js"></script>
   <script src="main.js"></script>
 </body>
-  </html>
+                </html>
